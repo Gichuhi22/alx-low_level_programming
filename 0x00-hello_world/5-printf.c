@@ -8,7 +8,8 @@
 int main(void)
 /*main function: main program entry*/
 {
-	fprintf(stderr,"%s", "with proper grammar, but the outcome is a piece of art,");
+	printf("%s", "with proper grammar, but the outcome is a piece of art,");
+	fprintf(stderr, "%s", "Stack overflow");
 
 	return (0);
 }
