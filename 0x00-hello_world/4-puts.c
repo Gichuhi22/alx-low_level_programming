@@ -1,4 +1,5 @@
 #include <stdio.h>
+/*main progran execution function*/
 int main(void)
 {
 /*string initialization*/
