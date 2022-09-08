@@ -9,7 +9,7 @@ int main(void)
 /*main function: main program entry*/
 {
 	printf("%s", "with proper grammar, but the outcome is a piece of art,");
-	fprintf(stderr, "%s", "Stack overflow");
+	fprintf(stderr, "%s","!");
 
 	return (0);
 }
