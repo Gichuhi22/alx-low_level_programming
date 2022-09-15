@@ -1,9 +1,7 @@
 #include "main.h"
 /**
  * print_times_table - function that prints n times table
- *
  * @n: passed parameter
- *
  * Return: nothing
  */
 void print_times_table(int n)
@@ -17,11 +15,7 @@ void print_times_table(int n)
 			for (j = 0; j <= n; j++)
 			{
 				k = i * j;
-				if (k == 0)
-				{
-					_putchar(k + 48);
-				}
-				else if (k < 10)
+				if (k == 0 || k < 10)
 				{
 					_putchar(32);
 					_putchar(32);
@@ -48,5 +42,4 @@ void print_times_table(int n)
 			_putchar('\n');
 		}
 	}
-
 }
