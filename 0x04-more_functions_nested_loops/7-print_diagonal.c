@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- *print_line - draws a diagonal line
+ *print_diagonal - draws a diagonal line
  *@n: the passed parameter
  *
  *Return: null
@@ -8,7 +8,7 @@
 
 void print_diagonal(int n)
 {
-	int i;
+	int i, j;
 
 	if (n <= 0)
 	{
@@ -18,16 +18,12 @@ void print_diagonal(int n)
 	{
 		for (i = 0; i < n; i++)
 		{
-			if (i != n)
+			for (j = 1; j <= i; j++)
 			{
 				_putchar(32);
 			}
-			else if (i == n)
-			{
-				_putchar(92);
-				_putchar('\n');
-			}
-
+			_putchar(92);
+			_putchar('\n');
 		}
 	}
 }
