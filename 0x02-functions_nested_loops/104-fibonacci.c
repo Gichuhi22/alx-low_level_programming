@@ -7,7 +7,7 @@
 int main(void)
 {
 	int i = 0;
-	long int next, a, b;
+	unsigned long int next, a, b;
 
 	a = 0;
 	b = 1;
