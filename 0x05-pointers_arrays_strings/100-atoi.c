@@ -1,5 +1,6 @@
 #include "main.h"
 #include <string.h>
+#include <stdlib.h>
 /**
  * _atoi - function to convert a string to integer
  * @s: Pointer to the string to be converted
@@ -8,13 +9,8 @@
  */
 int _atoi(char *s)
 {
-	int length, i, Result;
-
-	Result = 0;
-	length = strlen(s);
-
-	for (i = 0; 1 < length; i++)
-		Result = Result * 10 + (s[i] - 48);
-
-	return length;
+	unsigned int i;
+	
+	i = strtol(s, NULL, 10);
+	return (i);
 }
