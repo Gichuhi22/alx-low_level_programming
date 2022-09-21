@@ -10,7 +10,7 @@
 int _atoi(char *s)
 {
 	unsigned int i;
-	
+
 	i = strtol(s, NULL, 10);
 	return (i);
 }
