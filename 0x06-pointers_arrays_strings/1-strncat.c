@@ -5,6 +5,8 @@
  * @dest: pointer to destination string
  * @src: pointer to source string
  * @n: max number of bytes used
+ *
+ * Return: returns a string.
  */
 char *_strncat(char *dest, char *src, int n)
 {
@@ -14,7 +16,7 @@ char *_strncat(char *dest, char *src, int n)
 
 	for (i = 0; i < n; i++)
 	{
-		dest[len + i] = src[i]; 
+		dest[len + i] = src[i];
 	}
 	return (dest);
 }
