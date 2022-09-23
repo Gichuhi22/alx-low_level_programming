@@ -9,6 +9,7 @@
 char *cap_string(char *str)
 {
 	int i;
+	/*char delimiter[] = "'\t','\n'44,32,59,46,33,63,34,40,41,123,125";*/
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
@@ -17,9 +18,10 @@ char *cap_string(char *str)
 		{
 			if (str[i] >= 'a' && str[i] <= 'z')
 				str[i] = str[i] - 32;
-			continue;
+			/*continue;*/
 		}
-		if ((str[i] == ' '))
+		if ((str[i] == ' ') || (str[i] == '.') || (str[i] == ',') ||
+			(str[i] == '\t') || (str[i] == '\n'))
 		{
 			i++;
 			if (str[i] >= 'a' && str[i] <= 'z')
@@ -27,11 +29,6 @@ char *cap_string(char *str)
 				str[i] = str[i] - 32;
 				continue;
 			}
-		}
-		else
-		{
-			if (str[i] >= 'A' && str[i] <= 'Z')
-				str[i] = str[i] + 32;
 		}
 	}
 	return (str);
