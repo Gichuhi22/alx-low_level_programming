@@ -1,0 +1,15 @@
+#POINTERS, ARRAYS and STRINGS
+
+
+#TASKS
+0-memset.c
+
+
+
+#RESOURCES
+
+
+
+
+
+#THOUGHTS
