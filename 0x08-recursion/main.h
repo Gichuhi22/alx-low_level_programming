@@ -12,5 +12,4 @@ int _sqrt_recursion(int);
 int is_prime_number(int);
 
 
-
 #endif /*MAIN.H*/
