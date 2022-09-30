@@ -7,24 +7,26 @@
 
 int main(int argc, char *argv[])
 {
-	int i, sum = 0;
+	int i, j, sum = 0;
 
-	if (argc == 1)
-	{
-		printf("0\n");
-	}
-	else
+	if (argc > 1)
 	{
 		for (i = 1; i < argc; i++)
 		{
-			if (*argv[i] < 48 && *argv[i] > 57)
-			 	{
-				 	printf("Error\n");
-			 	}
-			break;
-		sum = sum + atoi(argv[i]);
+			for (j = 0; argv[i][j]; j++)
+			{
+				if (argv[i][j] < '0' || argv[i][j] > '9')
+				{
+			 		printf("Error\n");
+					return (1);
+				}
+			}
+			sum = sum + atoi(argv[i]);
+		}
+		printf("%d\n", sum);
 	}
-	printf("%d\n", sum);
-	}
+	else
+		printf("0\n");
+
 	return (0);
 }
