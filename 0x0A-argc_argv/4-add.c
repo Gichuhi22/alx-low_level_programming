@@ -2,7 +2,9 @@
 /**
  * main - adds all positive numbers
  * @argc: counts the number of arguments passed to main
- * @argv: an array that stores all arguments passed on cmd line
+ * @argv: an array that stores all arguments passed on cmd linei
+ *
+ * Return: always 0(sucess)
  */
 
 int main(int argc, char *argv[])
@@ -17,7 +19,7 @@ int main(int argc, char *argv[])
 			{
 				if (argv[i][j] < '0' || argv[i][j] > '9')
 				{
-			 		printf("Error\n");
+					printf("Error\n");
 					return (1);
 				}
 			}
