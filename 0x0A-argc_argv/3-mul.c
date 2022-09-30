@@ -9,7 +9,7 @@
 
 int main(int argc, char *argv[])
 {
-	int i, product = 1;
+	long int i, product = 1;
 
 	if (argc == 1)
 	{
@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 	{
 		product = product * atoi(argv[i]);
 	}
-	printf("%d\n", product);
+	printf("%ld\n", product);
 	}
 
 	return (0);
