@@ -28,6 +28,8 @@ char *_strdup(char *str)
 	if (str1 < str)
 		return (NULL);
 
+	str1[length] = '\0';
+
 
 	return (str1);
 }
