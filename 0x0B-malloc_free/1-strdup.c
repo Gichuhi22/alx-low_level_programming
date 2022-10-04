@@ -31,12 +31,6 @@ char *_strdup(char *str)
 	for (i = 0; str[i] != '\0'; i++)
 		str1[i] = str[i];
 
-	if (str1 < str)
-	{
-		return (NULL);
-		free(str1);
-	}
-
 	str1[length] = '\0';
 
 
