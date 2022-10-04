@@ -34,7 +34,7 @@ char *_strdup(char *str)
 	if (str1 < str)
 	{
 		return (NULL);
-		free(str);
+		free(str1);
 	}
 
 	str1[length] = '\0';
