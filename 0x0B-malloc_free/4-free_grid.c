@@ -11,17 +11,13 @@ void free_grid(int **grid, int height)
 {
 	int i = 0;
 
-	if (grid == NULL)
+	if (!(grid == NULL || height == 0))
 	{
-		_putchar('O');
-		_putchar('K');
-		_putchar('\0');
+		for (; i <= height; i++)
+		{
+			free(grid[i]);
+		}
+		free(grid);
 	}
-	else
-	for (; i <= height; i++)
-	{
-		free(grid[i]);
-	}
-	free(grid);
 }
 
