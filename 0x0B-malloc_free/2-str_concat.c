@@ -15,10 +15,10 @@ char *str_concat(char *s1, char *s2)
 
 	length1 = strlen(s1);
 	length2 = strlen(s2);
-	if (s1 == NULL)
+	/*if (s1 == NULL)
 		s1 = '\0';
 	if (s2 == NULL)
-		s2 = '\0';
+		s2 = '\0';*/
 
 	str = (char *)malloc((length1 + length2) * sizeof(char) + 1);
 	if (!str)
@@ -26,10 +26,20 @@ char *str_concat(char *s1, char *s2)
 
 	for (i = 0; s1[i] != '\0'; i++)
 	{
+		if (s1 = NULL)
+		{
+			str[i] = NULL;
+		}
+		else 
 		str[i] = s1[i];
 	}
 	for (i = 0; s2[i] != '\0'; i++)
 	{
+		if (s2 == NULL)
+		{
+			str[length1 + i] = '\0';
+		}
+		else
 		str[length1 + i] = s2[i];
 	}
 
