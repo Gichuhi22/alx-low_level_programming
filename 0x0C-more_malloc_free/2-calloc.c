@@ -17,7 +17,8 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	}
 
 	array = malloc(nmemb * size);
-	if (array == NULL)
+	printf("size of memory allocated: %d", sizeof(array));
+	if (!array)
 	return (NULL);
 
 	for (i = 0; i <= nmemb; i++)
