@@ -5,7 +5,7 @@
  *@s2: pointer to string 2
  *@n: string 2 delimiter
  *
- * Return: pointer to new string.
+ * Return: pointer to new concatenated string.
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
