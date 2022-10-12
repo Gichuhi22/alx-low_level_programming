@@ -7,7 +7,7 @@
  *@age: second entry
  *@owner: third entry
  *
- *struct dog: sores the data of dog
+ *Description: struct dog sores the data of dog
  */
 
 struct dog
@@ -16,4 +16,6 @@ struct dog
 	float age;
 	char *owner;
 };
+
+void init_dog(struct dog *d, char *name, float age, char *owner);
 #endif /* DOG_H */
