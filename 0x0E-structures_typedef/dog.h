@@ -1,12 +1,13 @@
 #ifndef DOG_H
 #define DOG_H
+
 #include <stddef.h>
 #include<stdio.h>
-/*
- *struct dog - stores data entries for variable dog
- *@name:first member
- *@age: second entry
- *@owner: third entry
+/**
+ *struct dog - dog
+ *@name:name of dog
+ *@age: age of dog
+ *@owner: owner
  *
  *Description: struct dog sores the data of dog
  */
