@@ -20,6 +20,6 @@ void print_dog(struct dog *d)
 		printf("Age: %.6f\n", d->age);
 	}
 	else
-		printf("");
+		return;
 
 }
