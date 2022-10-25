@@ -1,21 +1,21 @@
-
 global main
-external printf
+esternal printf
 
-SECTION .data:		;initialized data
 
-msg db "Hello, Holberton",0xA ;this is our message
-msg_length equ $ -msg
+SECTION .data       ;initialized data
 
-SECTION .text:	;asm code
-		global _start
-_start:
-		mov edx, len
-		mov ecx, msg
-		mov ebx, 1
-		mov eax, 4
-		int 0x80
+	msg: db "Hello, Holberton",0xA
+	msg_length equ $ -msg
 
-		mov eax, 1
-		int 0x080
+SECTION .text       ;asm code
 
+	main:
+		push ebp
+		mov ebp, esp
+
+		push msg
+		call printf
+
+		mov esp, ebp
+		pop ebp
+		ret
