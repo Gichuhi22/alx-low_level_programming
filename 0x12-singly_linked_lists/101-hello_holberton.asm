@@ -1,5 +1,6 @@
 
 global main
+external printf
 
 SECTION .data:		;initialized data
 
@@ -8,16 +9,14 @@ msg_length equ $-msg
 
 SECTION .text:		;asm code
 
-main: 
-	mov eax, 0x4
-	mov ebx, 1
-	mov ecx, msg
-	mov edx, msg_length
-	int 0x80
+main:
+	push ebp
+	mov ebp, esp
 
-	mov eax, 0x1
-	mov ebx, 0
-	int 0x80
+	push msg
+	call printf
 
+	mov esp, ebp
+	pop ebp
+	ret
 
-SECTION .bss:		;uninitialized variables
