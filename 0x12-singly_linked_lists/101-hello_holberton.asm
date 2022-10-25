@@ -4,19 +4,18 @@ external printf
 
 SECTION .data:		;initialized data
 
-msg: db "Hello, Holberton",0xA,0 ;this is our message
-msg_length equ $-msg
+msg db "Hello, Holberton",0xA ;this is our message
+msg_length equ $ -msg
 
-SECTION .text:		;asm code
+SECTION .text:	;asm code
+		global _start
+_start:
+		mov edx, len
+		mov ecx, msg
+		mov ebx, 1
+		mov eax, 4
+		int 0x80
 
-main:
-	push ebp
-	mov ebp, esp
-
-	push msg
-	call printf
-
-	mov esp, ebp
-	pop ebp
-	ret
+		mov eax, 1
+		int 0x080
 
