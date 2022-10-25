@@ -1,22 +1,23 @@
-SECTION .data		;initialized data
 
-msg: db "Hello, Holberton",10,0	;this is our message
-
-
-SECTION .text		;asm code
-
-external printf
 global main
-main:
-	push ebp
-	mov ebp, esp
 
-	push msg
-	call printf
+SECTION .data:		;initialized data
 
-	mov esp, ebp
-	pop ebp
-	ret
+msg: db "Hello, Holberton",0xA,0 ;this is our message
+msg_length equ $-msg
+
+SECTION .text:		;asm code
+
+main: 
+	mov eax, 0x4
+	mov ebx, 1
+	mov ecx, msg
+	mov edx, msg_length
+	int 0x80
+
+	mov eax, 0x1
+	mov ebx, 0
+	int 0x80
 
 
-SECTION .bss		;uninitialized variables
+SECTION .bss:		;uninitialized variables
