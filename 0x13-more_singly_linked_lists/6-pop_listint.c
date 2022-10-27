@@ -6,6 +6,8 @@
  * Return: returns 0 if list empty
  */
 
+	int x;
+
 int pop_listint(listint_t **head)
 {
 	listint_t *temp;
@@ -17,16 +19,18 @@ int pop_listint(listint_t **head)
 	}
 	else if (temp->next == NULL)
 	{
+		x = temp->n;
 		free(temp);
 		temp = *head = NULL;
-		return (0);
+		return (x);
 	}
 	else
 	{
+		x = (*head)->n;
 		*head = (*head)->next;
 		temp->next = NULL;
 		free(temp);
 		temp = *head;
-		return ((*head)->n);
+		return (x);
 	}
 }
