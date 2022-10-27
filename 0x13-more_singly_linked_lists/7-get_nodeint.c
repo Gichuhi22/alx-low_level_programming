@@ -18,6 +18,8 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 		count++;
 		if (count == index)
 			break;
+		if ((temp->next == NULL) && (count != index))
+			return (NULL);
 	}
 	return (temp);
 }
