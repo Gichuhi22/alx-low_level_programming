@@ -6,10 +6,9 @@
  * Return: returns 0 if list empty
  */
 
-	int x;
-
 int pop_listint(listint_t **head)
 {
+	int x;
 	listint_t *temp;
 
 	temp = *head;
