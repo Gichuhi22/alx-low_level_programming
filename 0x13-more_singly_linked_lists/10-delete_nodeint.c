@@ -13,7 +13,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	unsigned int count = 0;
 
 	temp = curr = *head;
-	
+
 	if (temp)
 	{
 		if (index == 0)
@@ -36,11 +36,10 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 				free(temp);
 				temp = NULL;
 			}
-				
 		}
 	}
 	else
 		return (-1);
 
-	return(1);
+	return (1);
 }
