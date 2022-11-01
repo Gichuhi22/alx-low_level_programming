@@ -29,14 +29,15 @@ unsigned long int num_pow(unsigned int base, unsigned int exp)
 
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned long int mask;
+	unsigned long int mask, clearbit;
 
 	if (index > sizeof(n) * 8 - 1)
 	{
 		return (-1);
 	}
-	
-	mask = num_pow(2, index);
-	*n = *n | mask;
+	mask = 1 << index;
+	clearbit = *n & ~mask;
+
+	*n = mask | clearbit;
 	return (*n);
 }
