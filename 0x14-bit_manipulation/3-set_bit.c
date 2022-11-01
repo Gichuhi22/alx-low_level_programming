@@ -1,25 +1,5 @@
 #include "main.h"
-/**
- * num_pow = gets exponetial result
- * @base: base element
- * @exp: exponent
- * Return: result base ^ exp
- */
-unsigned long int num_pow(unsigned int base, unsigned int exp)
-{
-	unsigned long int result = 1;
 
-	if (exp == 0)
-	{
-		return (1);
-	}
-	while (exp)
-	{
-		result = result * base;
-		exp --;
-	}
-	return (result);
-}
 /**
  * set_bit - set value of bit at given index to 1
  * @n: pointer to integer number
