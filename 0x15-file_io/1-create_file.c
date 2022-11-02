@@ -7,16 +7,16 @@
  * Return: 1 on success or -1 on failure
  */
 
-int create_file(const char *filename, char*text_content)
+int create_file(const char *filename, char *text_content)
 {
 	int fd, i;
 
 	if (!filename)
 		return (-1);
 
-	if (access(filename, F_OK)== 0)
+	if (access(filename, F_OK) == 0)
 	{
-		fd = open(filename ,O_TRUNC);
+		fd = open(filename, O_TRUNC);
 	}
 	else
 	{
@@ -28,7 +28,7 @@ int create_file(const char *filename, char*text_content)
 
 	if (text_content)
 		i = write(fd, text_content, (strlen(text_content) + 1));
-	
+
 	if (i == -1)
 		return (-1);
 
