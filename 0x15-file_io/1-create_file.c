@@ -1,6 +1,12 @@
 #include "main.h"
 #include<stdbool.h>
 
+/**
+ * file_exists - checks if a file exists
+ * @filename: file name to check
+ * Return: boolean true if it exists or false if not
+ */
+
 bool file_exists(const char *filename)
 {
 	FILE *fp = fopen(filename, "r");
@@ -34,7 +40,7 @@ int create_file(const char *filename, char *text_content)
 	}
 	else
 	{
-		fd = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
+		fd = open(filename, O_CREAT | O_RDWR, 0600);
 	}
 
 	if (fd == -1)
