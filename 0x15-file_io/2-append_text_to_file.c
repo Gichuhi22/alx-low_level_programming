@@ -9,7 +9,7 @@
 
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int fd, length;
+	int fd, length = 0;
 	ssize_t i;
 
 	if (!filename || !text_content)
@@ -24,7 +24,9 @@ int append_text_to_file(const char *filename, char *text_content)
 	else
 		return (-1);
 
-	length = strlen(text_content);
+	/*length = strlen(text_content);*/
+	for (; text_content[length];)
+		length++;
 
 	if (access(filename, R_OK) == 0)
 	{
