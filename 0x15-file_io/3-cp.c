@@ -31,31 +31,37 @@ int handle_file_from(char *file, char *buff, int *p)
 }
 /**
  * handle_file_to - handles opening and writing to argv[2]
- * @file: pointer to passed file from main
+ * @file2: pointer to passed file from main
  * @buff: stores content read from first argument
  * @p: pointer to return value of write function
  * @p1: pointer to return value of read function
+ * @fd1: pointer to read
  * Return: file descriptor
  */
 
-int handle_file_to(char *file, char *buff, int *p, int *p1)
+int handle_file_to(char *file2, char *buff, int *p, int *p1, int *fd1)
 {
 	int fd2;
 
-	if (access(file, F_OK) == 0)
-	{
-		fd2 = open(file, O_TRUNC);
-	}
-	else
-	{
-		fd2 = open(file, O_CREAT | O_RDWR | O_TRUNC, 0664);
-	}
-	*p = write(fd2, buff, *p1);
-	if (*p == -1 || fd2 == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
-		exit(99);
-	}
+	do {
+			if (access(file2, F_OK) == 0)
+			{
+				fd2 = open(file2, O_TRUNC);
+			}
+			else
+			{
+				fd2 = open(file2, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+			}
+			*p = write(fd2, buff, *p1);
+			if (*p == -1 || fd2 == -1)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file2);
+				exit(99);
+			}
+			*p1 = read(*fd1, buff, 1024);
+			fd2 = open(file2, O_WRONLY | O_APPEND);
+	} while (*p1 > 0);
+
 	return (fd2);
 }
 /**
@@ -80,7 +86,7 @@ int main(int argc, char *argv[])
 	file_to = argv[2];
 
 	fd1 = handle_file_from(file_from, buff, &r);
-	fd2 =  handle_file_to(file_to, buff, &w, &r);
+	fd2 =  handle_file_to(file_to, buff, &w, &r, &fd1);
 
 	x = close(fd1);
 	y = close(fd2);
