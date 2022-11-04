@@ -22,14 +22,13 @@ int main(int argc, char *argv[])
 		r = read(fd1, buff, 1024);
 		if (fd1 == -1 || r == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file NAME_OF_THE_FILE\n");
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 			exit(98);
 		}
-
 	}
 	else
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file NAME_OF_THE_FILE\n");
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
 	
@@ -44,15 +43,20 @@ int main(int argc, char *argv[])
 	w = write(fd2, buff, r);
 	if (w == -1 || fd2 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to NAME_OF_THE_FILE\n");
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
 	
 	x = close(fd1);
 	y = close(fd2);
-	if (x == -1 || y == -1)
+	if (x == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd FD_VALUE\n");
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
+		exit(100);
+	}
+	else if (y == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
 		exit(100);
 	}
 
