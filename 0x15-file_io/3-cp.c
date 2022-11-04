@@ -48,7 +48,7 @@ int handle_file_to(char *file, char *buff, int *p, int *p1)
 	}
 	else
 	{
-		fd2 = open(file, O_CREAT | O_RDWR O_TRUNC, 0664);
+		fd2 = open(file, O_CREAT | O_RDWR | O_TRUNC, 0664);
 	}
 	*p = write(fd2, buff, *p1);
 	if (*p == -1 || fd2 == -1)
