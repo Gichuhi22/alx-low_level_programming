@@ -43,24 +43,27 @@ int handle_file_to(char *file2, char *buff, int *p, int *p1, int *fd1)
 {
 	int fd2;
 
-	do {
-			if (access(file2, F_OK) == 0)
-			{
-				fd2 = open(file2, O_TRUNC);
-			}
-			else
-			{
-				fd2 = open(file2, O_CREAT | O_WRONLY | O_TRUNC, 0664);
-			}
-			*p = write(fd2, buff, *p1);
-			if (*p == -1 || fd2 == -1)
-			{
-				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file2);
-				exit(99);
-			}
-			*p1 = read(*fd1, buff, 1024);
-			fd2 = open(file2, O_WRONLY | O_APPEND);
-	} while (*p1 > 0);
+	if (access(file2, F_OK) == 0)
+	{
+		fd2 = open(file2, O_TRUNC);
+	}
+	else
+	{
+		fd2 = open(file2, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	}
+
+	*p = write(fd2, buff, *p1);
+	if (*p == -1 || fd2 == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file2);
+		exit(99);
+	}
+
+	while (*p1 > 0)
+	{
+		*p1 = read(*fd1, buff, 1024);
+		fd2 = open(file2, O_WRONLY | O_APPEND);
+	}
 
 	return (fd2);
 }
