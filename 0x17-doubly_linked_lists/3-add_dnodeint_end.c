@@ -1,5 +1,10 @@
 #include "lists.h"
-
+/**
+ * add_dnodeint_end -  adds a node at the end of a linked list
+ *@head: pointer to first node
+ *@n: integer value in new node
+ *Return: address of new node
+ */
 
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
